@@ -29,10 +29,16 @@ Route::get('/test3/{id?}', function ($id = null) {
 })
 ->where('id', '[1-9]');
 
-Route::get('/user/{id}/{name}', function ($id = null, $name = null) {
+Route::get('/user2/{id}/{name}', function ($id = null, $name = null) {
     return 'User ' . $id . ',name: ' . $name;
 })
 ->where(['id'=>'[1-9]','name'=>'[a-d]+']);
+
+#Route::controller('user', 'UserController');
+
+#Route::get('user/{id}', 'UserController@showProfile');
+
+Route::controller('users', 'UserController');
 
 
 /*
