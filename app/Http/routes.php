@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+Route::get('/test2/{id?}', function ($id = null) {
+    return 'User ' . $id;
+});
+
+Route::get('/test3/{id?}', function ($id = null) {
+    return 'User ' . $id;
+})
+->where('id', '[1-9]');
+
+Route::get('/user/{id}/{name}', function ($id = null, $name = null) {
+    return 'User ' . $id . ',name: ' . $name;
+})
+->where(['id'=>'[1-9]','name'=>'[a-d]+']);
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
